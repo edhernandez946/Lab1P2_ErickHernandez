@@ -97,6 +97,7 @@ public class Lab1P2_ErickHernandez {
             medianas.add(mediana);
 
         }
+        
         System.out.println("La matriz ordenada es");
         imprimirMatriz(matrizOrdenada);
 
