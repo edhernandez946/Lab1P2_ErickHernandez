@@ -27,7 +27,7 @@ public class Lab1P2_ErickHernandez {
 
     public static int tamañoMatriz() {
 
-        System.out.println("Ingrese el tamaño de la matriz (mayor que 4 e impar");
+        System.out.println("Ingrese el tamaño de la matriz (mayor que 4 e impar)");
 
         int temporal = sc.nextInt();
         while (temporal <= 4 || temporal % 2 == 0) {
@@ -42,7 +42,7 @@ public class Lab1P2_ErickHernandez {
     public static void imprimirMatriz(int[][] matriz) {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
-                System.out.print(matriz[i][j] + " ");
+                System.out.print("[" + matriz[i][j] + "]");
             }
             System.out.println("");
         }
@@ -52,7 +52,7 @@ public class Lab1P2_ErickHernandez {
     public static void imprimirArray(int[] array) {
 
         for (int j = 0; j < array.length; j++) {
-            System.out.print(array[j] + " ");
+            System.out.print("[" + array[j] + "]");
         }
     }
 
@@ -60,10 +60,11 @@ public class Lab1P2_ErickHernandez {
 
         int[][] temporal = new int[tamaño][tamaño];
         temporal = matrizRandom;
-
         int[][] matrizOrdenada = new int[tamaño][tamaño];
-
         int[] fila = new int[tamaño];
+
+        ArrayList<Integer> medianas = new ArrayList<>();
+        int[] medianasArreglo = new int[tamaño];
 
         for (int i = 0; i < tamaño; i++) {
 
@@ -74,11 +75,11 @@ public class Lab1P2_ErickHernandez {
             for (int k = 0; k < tamaño; k++) {
                 for (int l = k; l < tamaño - 1; l++) {
 
-                    if (fila [k] > fila [l+1]) {
+                    if (fila[k] > fila[l + 1]) {
 
-                        int temp = fila [k];
-                        fila [k] = fila [l + 1];
-                        fila [l + 1] = temp;
+                        int temp = fila[k];
+                        fila[k] = fila[l + 1];
+                        fila[l + 1] = temp;
 
                     }
 
@@ -86,10 +87,54 @@ public class Lab1P2_ErickHernandez {
 
             }
 
-            imprimirArray(fila);
-            System.out.println("");
+            for (int j = 0; j < tamaño; j++) {
+
+                matrizOrdenada[i][j] = fila[j];
+
+            }
+
+            int mediana = fila[tamaño / 2];
+            medianas.add(mediana);
 
         }
+        System.out.println("La matriz ordenada es");
+        imprimirMatriz(matrizOrdenada);
+
+        System.out.println("");
+        System.out.println("Las medianas de cada fila son:");
+        System.out.println(medianas);
+
+        for (int j = 0; j < tamaño; j++) {
+            medianasArreglo[j] = medianas.get(j);
+        }
+
+        for (int k = 0; k < tamaño; k++) {
+            for (int l = k; l < tamaño - 1; l++) {
+
+                if (medianasArreglo[k] > medianasArreglo[l + 1]) {
+
+                    int temp2 = medianasArreglo[k];
+                    medianasArreglo[k] = medianasArreglo[l + 1];
+                    medianasArreglo[l + 1] = temp2;
+
+                }
+
+            }
+
+        }
+        
+        System.out.println("");
+        System.out.println("El arrelgo de las medianas ordenado es: ");
+        imprimirArray (medianasArreglo);
+        
+        
+        int mediana2 = medianasArreglo[tamaño / 2];
+        
+        System.out.println("F");
+        System.out.println("");
+        System.out.println("Mediana de las medianas:");
+        System.out.println(mediana2);
+        
 
         return matrizOrdenada;
 
@@ -101,6 +146,7 @@ public class Lab1P2_ErickHernandez {
         matriz = matrizRandom(tamaño);
         ArrayList<Integer> medianas = new ArrayList<>();
 
+        System.out.println("La matriz generada es:");
         imprimirMatriz(matriz);
 
         bubbleSort(matriz);
