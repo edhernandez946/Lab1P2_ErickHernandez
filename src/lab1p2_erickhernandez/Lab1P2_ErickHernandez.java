@@ -105,6 +105,8 @@ public class Lab1P2_ErickHernandez {
         System.out.println("Las medianas de cada fila son:");
         System.out.println(medianas);
 
+        
+        
         for (int j = 0; j < tamaño; j++) {
             medianasArreglo[j] = medianas.get(j);
         }
