@@ -154,6 +154,8 @@ public class Lab1P2_ErickHernandez {
         System.out.println("La matriz generada es:");
         imprimirMatriz(matriz);
 
+        
+        
         bubbleSort(matriz);
 
     }
