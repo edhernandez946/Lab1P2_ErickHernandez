@@ -142,6 +142,8 @@ public class Lab1P2_ErickHernandez {
         return matrizOrdenada;
 
     }
+    
+    
 
     public static void main(String[] args) {
 
