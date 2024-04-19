@@ -11,6 +11,8 @@ public class Lab1P2_ErickHernandez {
     static Scanner sc = new Scanner(System.in);
     static int tamaño = tamañoMatriz();
 
+    
+    
     public static int[][] matrizRandom(int tamaño) {
 
         int[][] temporal = new int[tamaño][tamaño];
